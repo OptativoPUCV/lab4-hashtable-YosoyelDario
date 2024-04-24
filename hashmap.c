@@ -104,10 +104,37 @@ void eraseMap(HashMap * map,  char * key) {
 
 }
 
-Pair * searchMap(HashMap * map,  char * key) {   
+/*
+ Implemente la función Pair * searchMap(HashMap * map, char * key), la cual retorna el Pair asociado a la clave ingresada. Recuerde que para buscar el par debe:
 
+a - Usar la función hash para obtener la posición donde puede encontrarse el par con la clave
 
-    return NULL;
+b - Si la clave no se encuentra avance hasta encontrarla (método de resolución de colisiones)
+
+c - Si llega a una casilla nula, retorne NULL inmediatamente (no siga avanzando, la clave no está)
+
+Recuerde actualizar el índice current a la posición encontrada. Recuerde que el arreglo es circular.
+*/
+
+Pair * searchMap(HashMap * map,  char * key){
+  long posicion = hash(key, map->capacity);
+  long posicionOriginal = posicion;
+
+  
+
+  while(map->buckets[posicion]!= NULL && map->buckets[posicion]->key != NULL)
+  {
+    if(strcmp(map->buckets[posicion]->key, key) == 0)// Si se encuentra la clave
+    {
+      map->current = posicion;
+      return map->buckets[posicion];
+    }
+    posicion = (posicion +1) % map->capacity;
+    if(posicion == posicionOriginal)
+      return NUll;
+  }
+  return NULL;
+  
 }
 
 Pair * firstMap(HashMap * map) {
