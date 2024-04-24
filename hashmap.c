@@ -120,20 +120,18 @@ Pair * searchMap(HashMap * map,  char * key){
   long posicion = hash(key, map->capacity);
   long posicionOriginal = posicion;
 
-  
-
-  while(map->buckets[posicion]!= NULL && map->buckets[posicion]->key != NULL)
+  while(map->buckets[posicion] != NULL && map->buckets[posicion]->key != NULL)
   {
-    if(strcmp(map->buckets[posicion]->key, key) == 0)// Si se encuentra la clave
+    if(strcmp(map->buckets[posicion]->key, key) == 0)
     {
       map->current = posicion;
       return map->buckets[posicion];
     }
     posicion = (posicion +1) % map->capacity;
     if(posicion == posicionOriginal)
-      return NULL; // SI SE LLEGO AL FINAL DEL ARREGLO.
+      return NULL;
   }
-  return NULL; // SI SE LLEGO A UNA CASILLA NULA.
+  return NULL;
   
 }
 
