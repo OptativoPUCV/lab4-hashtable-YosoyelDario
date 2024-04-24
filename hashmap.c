@@ -208,7 +208,7 @@ Pair * firstMap(HashMap * map){
 
 Pair * nextMap(HashMap * map){
   long i;
-  for(i = map->current + 1; i < map->capacity; i++)
+  for(i = map->current + 1; i < map->capacity; i++) // sig del current
   {
     if(map->buckets[i] != NULL && map->buckets[i]->key != NULL)
     {
