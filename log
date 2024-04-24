@@ -2,3 +2,15 @@ Wed 24 Apr 2024 03:06:09 AM UTC:
  tests:  0|6
 total_score: 0/70
 f618a95
+Wed 24 Apr 2024 03:52:22 AM UTC: 
+ hashmap.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:62:10: error: ‘map’ undeclared (first use in this function); did you mean ‘mapa’?
+   62 |     free(map);
+      |          ^~~
+      |          mapa
+hashmap.c:62:10: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+69b7299
