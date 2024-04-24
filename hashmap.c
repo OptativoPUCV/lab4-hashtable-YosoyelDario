@@ -59,7 +59,7 @@ HashMap * createMap(long capacity){
   }
   mapa->buckets = (Pair **)calloc(capacity, sizeof(Pair *));
   if(mapa->buckets == NULL){
-    free(map);
+    free(mapa);
     return NULL;
   }
 
