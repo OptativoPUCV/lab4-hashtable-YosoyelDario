@@ -51,25 +51,23 @@ No inserte claves repetidas. Recuerde que el arreglo es circular. Recuerde actua
 */
 
 void insertMap(HashMap * map, char * key, void * value){
-  long posicion = hash(key, map->capacity);     //Valores long porque en el struct los valores de la capacity y size son long.
+  long posicion = hash(key, map->capacity);
   long posicionOriginal = posicion;
 
-  while(map->buckets[posicion] != NULL && map->buckets[posicion]->key != NULL)
+  while(map->buckets[posicion]!= NULL && map->buckets[posicion]->key != NULL)
   {
     if(strcmp(map->buckets[posicion]->key, key) == 0)
     {
       return;
     }
-    
-    posicion = (posicion +1) % map->capacity; // arreglo circula volver al inicio si llega al final.
-
-    if(posicion == posicionOriginal) // Si se volvio significa que no habian casillas disponibles para el dato.
+    posicion = (posicion + 1) % map->capacity;
+    if(posicion == posicionOriginal)
+    {
       return;
+    } 
   }
-
   map->buckets[posicion] = createPair(key,value);
   map->current = posicion;
-  
 
   map->size++;
 }
@@ -103,7 +101,6 @@ HashMap * createMap(long capacity){
   mapa->capacity = capacity;
 
   return mapa;
-  
 }
 
 void eraseMap(HashMap * map,  char * key) {    
