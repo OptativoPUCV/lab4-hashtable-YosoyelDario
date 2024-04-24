@@ -131,9 +131,9 @@ Pair * searchMap(HashMap * map,  char * key){
     }
     posicion = (posicion +1) % map->capacity;
     if(posicion == posicionOriginal)
-      return NULL;
+      return NULL; // SI SE LLEGO AL FINAL DEL ARREGLO.
   }
-  return NULL;
+  return NULL; // SI SE LLEGO A UNA CASILLA NULA.
   
 }
 
