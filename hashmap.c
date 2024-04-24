@@ -131,7 +131,7 @@ Pair * searchMap(HashMap * map,  char * key){
     }
     posicion = (posicion +1) % map->capacity;
     if(posicion == posicionOriginal)
-      return NUll;
+      return NULL;
   }
   return NULL;
   

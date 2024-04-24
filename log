@@ -56,3 +56,9 @@ hashmap.c:134:14: error: ‘NUll’ undeclared (first use in this function); did
 hashmap.c:134:14: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 1554186
+Wed 24 Apr 2024 04:24:30 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  8|3
+total_score: 40/70
+6c8c04a
